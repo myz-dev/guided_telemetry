@@ -6,6 +6,15 @@ It contains a very simple web-server that should demonstrate how the logical "fl
 Note: Keep in mind that all topics touched in this repository are evolving quickly which means that by the time of reading some dependencies will most likely
 be outdated.
 
+## Test and run
+
+1. First start the environment as described in [Setting up Grafana](#setting-up-grafana). I just `cd` into the cloned repository and run `./run-lgtm.sh`.
+2. Then run `cargo run` in this repository.
+3. Then you can send HTTP requests to the endpoints I have prepared and observe the terminal, and the Grafana output.
+Examples: `curl localhost:5173/hello`, `curl -X POST localhost:5173/users/add/mert` etc.
+
+The Grafana frontend should be available at localhost:3000. To see the most recent spans, click on `Explore` in the left sidebar, select `Tempo` in the dropdown on the top and click on the `Search` tab to see the page that lists the most recent spans.
+
 ## Disambiguation
 
 So, what are traces, spans and metrics?
@@ -142,12 +151,3 @@ Here we see, that there have been 11 requests that have taken 250 to 500 micro s
 [This very simple Grafana dashboard](./dashboard.json) renders a simple bar chart (histogram) that visualizes the data.
 
 Follow the steps described [in in Grafana docs](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/) to import the dashboard.
-
-## Test and run
-
-1. First start the environment as described in [Setting up Grafana](#setting-up-grafana). I just `cd` into the cloned repository and run `./run-lgtm.sh`.
-2. Then run `cargo run` in this repository.
-3. Then you can send HTTP requests to the endpoints I have prepared and observe the terminal, and the Grafana output.
-Examples: `curl localhost:5173/hello`, `curl -X POST localhost:5173/users/add/mert` etc.
-
-The Grafana frontend should be available at localhost:3000. To see the most recent spans, click on `Explore` in the left sidebar, select `Tempo` in the dropdown on the top and click on the `Search` tab to see the page that lists the most recent spans.
